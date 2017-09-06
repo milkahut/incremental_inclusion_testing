@@ -1,0 +1,51 @@
+#
+# This file is assumed to be included in a Makefile
+# that previously already included the respective
+# Config file.
+#
+# It sets the variable PGSOLVERS containing all
+# PGSOLVERS.
+#
+# It uses the environment variable HASSAT and
+# PGSOLVERSOBJ
+#
+
+PGSOLVERSLIST=$(PGSOLVERSOBJ)/recursive.cmx \
+	$(PGSOLVERSOBJ)/stratimprovement.cmx \
+	$(PGSOLVERSOBJ)/stratimpralgs.cmx \
+	$(PGSOLVERSOBJ)/optstratimprov.cmx \
+	$(PGSOLVERSOBJ)/localmodelchecker.cmx \
+	$(PGSOLVERSOBJ)/dominiondecomp.cmx \
+	$(PGSOLVERSOBJ)/guessstrategy.cmx \
+	$(PGSOLVERSOBJ)/smallprogress.cmx \
+	$(PGSOLVERSOBJ)/bigstep.cmx \
+	$(PGSOLVERSOBJ)/stratimprlocal.cmx \
+	$(PGSOLVERSOBJ)/stratimprlocal2.cmx \
+	$(PGSOLVERSOBJ)/stratimprdisc.cmx \
+	$(PGSOLVERSOBJ)/genetic.cmx
+
+SATLIST=$(PGSOLVERSOBJ)/viasat.cmx \
+        $(PGSOLVERSOBJ)/satsolve.cmx \
+        $(PGSOLVERSOBJ)/stratimprsat.cmx
+
+
+ifeq "$(HASSAT)" "YES"
+
+PGSOLVERSX=$(PGSOLVERSLIST) $(SATLIST)
+
+else
+
+PGSOLVERSX=$(PGSOLVERSLIST)
+
+endif
+
+
+ifeq "$(HASSMT)" "YES"
+
+PGSOLVERS=$(PGSOLVERSX) $(PGSOLVERSOBJ)/smtsolve.cmx
+
+else
+
+PGSOLVERS=$(PGSOLVERSX)
+
+endif

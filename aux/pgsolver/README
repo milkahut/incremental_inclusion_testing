@@ -1,0 +1,19 @@
+Parity Game Solver Version 3
+Authors: Oliver Friedmann and Martin Lange, 2008-2010
+
+
+*****************************************************
+
+Please consult
+
+  doc/pgsolver.pdf
+
+for a guide to installation, usage and development
+of this tool.
+
+For a quick installation guide, please consider
+
+	./install.txt
+
+*****************************************************
+

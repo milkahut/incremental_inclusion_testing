@@ -1,0 +1,5 @@
+OCAMLOPT=ocamlopt
+OCAMLDEP=ocamldep
+
+PGSOLVERDIR=aux/pgsolver
+TCSLIBDIR=aux/pgsolver/TCSlib

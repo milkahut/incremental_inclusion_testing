@@ -1,0 +1,81 @@
+*********************************************************************
+       QUICK INSTALLATION GUIDE FOR THE PGSOLVER COLLECTION
+*********************************************************************
+
+This guide explains how to quickly install and configure the PGSolver
+Collection of Parity Game Solvers. We highly recommend to read the
+documentation file (./doc/pgsolver.pdf) instead.
+
+
+
+Obtaining PGSolver:
+
+	You can obtain the source code of the PGSolver library from
+
+	    http://www.tcs.ifi.lmu.de/pgsolver
+
+	Download and unpack the archive.
+
+	    ~> tar xzvf pgsolver.tgz
+
+	Unpacking will create a directory ./pgsolver and various
+	subdirectories in it.
+
+
+
+Required Compilers:
+
+	In order to compile PGSolver from source code you will need the
+	OCaml compiler; we recommend version 3.09.2 or higher, but
+	earlier versions may just as well be fine. You can get it from
+
+	    http://caml.inria.fr
+
+	You will also need GNU make; we recommend version 3.81 or higher
+	but earlier ones may suffice as well.
+    You can get it from
+
+	    http://www.gnu.org/software/make
+
+
+
+Configuring PGSolver:
+
+	There is one config file,
+
+		./Config.default
+
+	that has to be edited. It is highly recommended to create a copy
+	of the file with the name Config in the respective directory
+	that is to be edited instead of the original version. The
+	Makefile checks whether a customized configuration file named
+	Config exists and if so it is used instead of the default
+	versions.
+
+	The configuration file starts with declarations about where to
+	find all the programs necessary to build the executable MLSolver.
+
+        OCAMLOPT=ocamlopt
+        OCAMLLEX=ocamllex
+        OCAMLYACC=ocamlyacc
+
+	Change these lines to point to the full path in which the OCaml
+	compiler, lexer and parser generator are installed unless they
+	are in the current PATH.
+
+	You need to give the full path of you OCaml installation
+	directory.
+
+	    OCAML_DIR=/usr/lib/ocaml
+
+
+
+Compiling PGSolver:
+
+	Once you have adjusted both Config files accordingly you can now
+	compile PGSolver by simply calling the make program.
+
+	    ~/pgsolver> make all
+
+	After successful compilation, several executables can be found in
+	the subdirectory bin.

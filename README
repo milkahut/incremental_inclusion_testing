@@ -1,0 +1,80 @@
+*****************************************************************
+IIT : incremental inclusion testing of two NBA
+
+Note that this is companion tool for a paper submission at 
+LATA 2013, and still a very prototype version.
+
+Authors: Milka Huntagalung, Martin Lange, Etienne Lozes.
+*****************************************************************
+
+1) Configuration requirements
+-----------------------------
+
+IIT is written in OCaml and uses two Ocaml libraries:
+
+    - PGSolver: a library of solvers of Parity Game written by
+      Oliver Friedmann and Martin Lange.   
+
+    - Xml-light: a library for parsing XML files written by
+      Nicolas Cannasse (used to parse gff files).
+
+PGSolver itself uses several sat solver libraries.
+
+All these libraries are included in the distribution 
+(see aux/ subdirectories).
+
+One requirement for compiling IIT is thus to have a fairly
+recent version of Ocaml installed on your computer. We used
+version 3.12.1, but we were reported that PGSolver could have
+problems to compile with older versions of Ocaml.
+
+You may need to change the default path for Ocaml standard 
+libraries.
+
+To do so, edit the following 
+   - variable OCAMLDIR in Config.default
+   - variable OCAML_DIR in aux/pgsolver/Config.default
+   - variable OCAML_DIR in 
+     aux/pgsolver/satsolvers/Config.default
+
+We hope these are the only problems you may have to fix. 
+Any decently recent version of make should do the job.
+
+
+2) Compilation
+--------------
+Once configurations are fixed, try
+
+> make
+
+and you should get a "iit" executable
+    
+
+3) Usage
+--------
+./iit [options] firstfile secondfile
+See also ./iit -help for a brief description of the available 
+options.
+
+Two file formats are recognized by IIT:
+
+    - ba format (see http://languageinclusion.org/CONCUR2011)
+    - gff format (see http://goal.im.ntu.edu.tw/wiki/)
+
+The file format is determined by the file 
+extension (.ba or .gff)
+
+Use for instance the Goal tool to generate your own 
+automata and save them in the gff format.
+
+IIT reports on the standard output if it managed to prove
+language inclusion, and if so, how much time and iterations 
+it used.
+
+Note that IIT will always timeout if there is no language 
+inclusion.
+
+It may return before the time out you fixed only for pebble, 
+where a simple check allows to determine in some cases that 
+there is no hope to establish language inclusion with 
+any number of iterations.

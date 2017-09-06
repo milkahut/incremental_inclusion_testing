@@ -1,0 +1,25 @@
+#
+# This file is assumed to be included in a Makefile
+# that previously already included the respective
+# Config file.
+#
+# It sets the variable GENERATORS containing all
+# GENERATORS.
+#
+# It uses the environment variable GENERATORSOBJ.
+#
+
+GENERATORS=$(GENERATORSOBJ)/randomgame.cmx \
+           $(GENERATORSOBJ)/laddergame.cmx \
+           $(GENERATORSOBJ)/clusteredrandomgame.cmx \
+           $(GENERATORSOBJ)/cliquegame.cmx \
+           $(GENERATORSOBJ)/modelcheckerladder.cmx \
+           $(GENERATORSOBJ)/recursiveladder.cmx \
+           $(GENERATORSOBJ)/steadygame.cmx \
+           $(GENERATORSOBJ)/jurdzinskigame.cmx \
+           $(GENERATORSOBJ)/elevatorverification.cmx \
+           $(GENERATORSOBJ)/expstratimpr.cmx \
+           $(GENERATORSOBJ)/superpolystratimpr.cmx \
+           $(GENERATORSOBJ)/expstratvoege.cmx \
+           $(GENERATORSOBJ)/superpolystratvoege.cmx \
+           $(GENERATORSOBJ)/towersofhanoi.cmx
